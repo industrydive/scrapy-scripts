@@ -7,7 +7,10 @@
 from scrapy.exceptions import DropItem
 
 
-class HRTech2017Pipeline(object):
+class TradeShowCompanyAndWebsitePipeline(object):
+    ''' Generic pipeline for handling a tradeshow item that requires a
+        an exhibitor name and website URL
+    '''
 
     def open_spider(self, spider):
         print "HELLO WORLD"
