@@ -6,6 +6,7 @@
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 from scrapy.exceptions import DropItem
 
+
 class HRTech2017Pipeline(object):
 
     def open_spider(self, spider):
@@ -17,6 +18,8 @@ class HRTech2017Pipeline(object):
     def process_item(self, item, spider):
         """ If I did anything fancy like clean or modify HTML in the properties
             of item, I would do it here
+
+            But for now, just drop the item if it doesn't have the info I want
         """
         if not item['website_url'] or not item['exhibitor_name']:
             raise DropItem

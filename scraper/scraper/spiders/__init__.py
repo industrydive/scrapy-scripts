@@ -12,6 +12,13 @@ class HrTech2017(CrawlSpider):
     name = "hrtech2017"
     allowed_domains = ["s23.a2zinc.net"]
     start_urls = ["http://s23.a2zinc.net/clients/lrp/hrtechnologyconference2017/Public/exhibitors.aspx?Index=All"]
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'scraper.pipelines.HRTech2017Pipeline': 1,
+        },
+        'CLOSESPIDER_ITEMCOUNT': 5,  # for testing
+        'CONCURRENT_REQUESTS': 1,  # for testing
+    }
 
     rules = [
         Rule(
