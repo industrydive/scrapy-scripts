@@ -8,6 +8,6 @@
 import scrapy
 
 
-class HrTech2017Exhibitor(scrapy.Item):
+class TradeShowExhibitor(scrapy.Item):
     website_url = scrapy.Field()
     exhibitor_name = scrapy.Field()

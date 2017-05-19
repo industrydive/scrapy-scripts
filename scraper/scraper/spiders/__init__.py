@@ -1,6 +1,6 @@
 from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
-from scraper.items import HrTech2017Exhibitor
+from scraper.items import TradeShowExhibitor
 from bs4 import BeautifulSoup
 
 
@@ -11,15 +11,15 @@ class TradeShowSpider(CrawlSpider):
         'ITEM_PIPELINES': {
             'scraper.pipelines.TradeShowCompanyAndWebsitePipeline': 1,
         },
-        'CLOSESPIDER_ITEMCOUNT': 5,  # for testing
-        'CONCURRENT_REQUESTS': 1,  # for testing
+        'CLOSESPIDER_ITEMCOUNT': 5,  # for testing - comment out for IRL
+        'CONCURRENT_REQUESTS': 1,  # for testing - comment out for IRL
     }
 
     def parse_item(self, response):
         ''' Parse exhibitor detail page
             Override this as
         '''
-        item = HrTech2017Exhibitor()
+        item = TradeShowExhibitor()
         html = BeautifulSoup(response.body, "html.parser")
         item['exhibitor_name'] = html.find('div', {'id': 'eboothContainer'}).find('h1').text
         contact_url_obj = html.find('a', {'id': 'BoothContactUrl'})
