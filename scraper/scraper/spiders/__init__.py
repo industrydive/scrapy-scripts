@@ -53,8 +53,11 @@ class HrTech2017(TradeShowSpider):
 
 
 class DistribuTech2018(TradeShowSpider):
-    ''' Spider for HR Technology Conference 2017
-        https://industrydive.atlassian.net/browse/TECH-1623
+    ''' Spider for Distributech Conference 2017
+        https://industrydive.atlassian.net/browse/TECH-2717
+
+        example usage:
+        scrapy crawl distributech2017 --output=distributech2018.csv --output-format=csv
     '''
 
     name = "distributech2018"
@@ -78,8 +81,11 @@ class DistribuTech2018(TradeShowSpider):
 
 
 class nrf2018(TradeShowSpider):
-    ''' Spider for HR Technology Conference 2017
-        https://industrydive.atlassian.net/browse/TECH-1623
+    ''' Spider for NRF Conference 2018
+        https://industrydive.atlassian.net/browse/TECH-2834
+
+        example usage:
+        scrapy crawl nrf2018 --output=nrf2018.csv --output-format=csv
     '''
 
     name = "nrf2018"
