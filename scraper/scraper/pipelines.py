@@ -24,6 +24,6 @@ class TradeShowCompanyAndWebsitePipeline(object):
 
             But for now, just drop the item if it doesn't have the info I want
         """
-        if not item['website_url'] or not item['exhibitor_name']:
-            raise DropItem
+        # if not item['website_url'] or not item['exhibitor_name']:
+        #    raise DropItem
         return item
