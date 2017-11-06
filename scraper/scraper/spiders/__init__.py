@@ -106,6 +106,10 @@ class nrf2018(TradeShowSpider):
 
         item['exhibitor_name'] = html.find('div', {'class': 'company_name'}).text
 
+        # there is no prganic way to get to the URL that has the exhibitor details that were requested
+        # there is no hpyerlink on the main list page or the normal details page for the spider to crawl to
+        # so - let's just execute a urllib call here to open the page at the URL we know the details should
+        # be at, and then BeautifulSoup it from there
         exhibitor_detail = BeautifulSoup(urllib2.urlopen("https://nrfbigshow.nrf.com/%s" % booth_number).read(), "html.parser")
 
         website_class = exhibitor_detail.body.find('div', {'class': 'field--name-field-booth-website'})
