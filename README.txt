@@ -9,18 +9,18 @@ Running a Tradeshow Scrape
 ============================
 For the most part, the generic spider at
 scraper/spiders/generic_tradeshow_spider.py should be able to handle most
-scraping requests that we get. If this is the case, you can use the scrape.sh
-wrapper script by passing it the exhibitor list page URL, like:
-$ ./scrape.sh http://s23.a2zinc.net/clients/.../exhibitors.aspx?Index=All
+scraping requests that we get.
 
-This will write CSV output to a file called tradeshow-scrape.csv
-If tradeshow-scrape.csv already exists, it will overwrite it
+If you need to scrape something that follows the same format as sites like
 
+http://s23.a2zinc.net/clients/lrp/hrtechnologyconference2017/Public/exhibitors.aspx?Index=All
+or
+http://events.pennwell.com/DTECH2018/Public/exhibitors.aspx?_ga=2.91461086.575732828.1507662078-248451487.1507662078
 
-If a request comes in for a page that doesn't match the generic tradeshow
-site format and you need to add a new spider, do so by creating one like
-scraper/spiders/whatever_your_custom_spider.py
+then you should be able to use this as-is by running the command:
+scrapy crawl tradeshow --output=<name-your-file>.csv --output-format=csv --set=start_url=<your-start-url>
 
+Otherwise, you may need to create a custom spider like in nrf2018_custom_spider.py
 
 
 Scrapy Basics
