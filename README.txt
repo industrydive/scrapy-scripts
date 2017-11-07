@@ -5,19 +5,26 @@ Install requirements:
 $ pip install -r requirements.txt
 
 
-Creating a scraper
+Running a Tradeshow Scrape
 ============================
-Spiders
-----------------------------
-Add a news spider to scraper/spiders/__init__.py
+For the most part, the generic spider at
+scraper/spiders/generic_tradeshow_spider.py should be able to handle most
+scraping requests that we get. If this is the case, you can use the scrape.sh
+wrapper script by passing it the exhibitor list page URL, like:
+$ ./scrape.sh http://s23.a2zinc.net/clients/.../exhibitors.aspx?Index=All
 
-Give it a class name that makes it clear what it is intended to be used
-for
+This will write CSV output to a file called tradeshow-scrape.csv
+If tradeshow-scrape.csv already exists, it will overwrite it
 
-Give it a name property that you will use to call it on the commans line
 
-Give it the appropriate allowed_domain & start_urls, as well as rules
-for links it should follow.
+If a request comes in for a page that doesn't match the generic tradeshow
+site format and you need to add a new spider, do so by creating one like
+scraper/spiders/whatever_your_custom_spider.py
+
+
+
+Scrapy Basics
+============================
 
 Callback functions
 ----------------------------

@@ -23,14 +23,14 @@ class TradeShowSpider(CrawlSpider):
         you should be able to use this as-is by running the command:
         scrapy crawl tradeshow --output=<name-your-file>.csv --output-format=csv --set=start_url=<your-start-url>
 
-        Otherwise, you may need to create a custom spider like nrf2018
+        Otherwise, you may need to create a custom spider like in nrf2018_custom_spider.py
     '''
     custom_settings = {
         'ITEM_PIPELINES': {
             'scraper.pipelines.TradeShowCompanyAndWebsitePipeline': 1,
         },
-        # 'CLOSESPIDER_ITEMCOUNT': 3,  # for testing - comment out for IRL
-        # 'CONCURRENT_REQUESTS': 1,  # for testing - comment out for IRL
+        'CLOSESPIDER_ITEMCOUNT': 3,  # for testing - comment out for IRL
+        'CONCURRENT_REQUESTS': 1,  # for testing - comment out for IRL
     }
 
     name = "tradeshow"
