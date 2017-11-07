@@ -5,19 +5,26 @@ Install requirements:
 $ pip install -r requirements.txt
 
 
-Creating a scraper
+Running a Tradeshow Scrape
 ============================
-Spiders
-----------------------------
-Add a news spider to scraper/spiders/__init__.py
+For the most part, the generic spider at
+scraper/spiders/generic_tradeshow_spider.py should be able to handle most
+scraping requests that we get.
 
-Give it a class name that makes it clear what it is intended to be used
-for
+If you need to scrape something that follows the same format as sites like
 
-Give it a name property that you will use to call it on the commans line
+http://s23.a2zinc.net/clients/lrp/hrtechnologyconference2017/Public/exhibitors.aspx?Index=All
+or
+http://events.pennwell.com/DTECH2018/Public/exhibitors.aspx?_ga=2.91461086.575732828.1507662078-248451487.1507662078
 
-Give it the appropriate allowed_domain & start_urls, as well as rules
-for links it should follow.
+then you should be able to use this as-is by running the command:
+scrapy crawl tradeshow --output=<name-your-file>.csv --output-format=csv --set=start_url=<your-start-url>
+
+Otherwise, you may need to create a custom spider like in nrf2018_custom_spider.py
+
+
+Scrapy Basics
+============================
 
 Callback functions
 ----------------------------
