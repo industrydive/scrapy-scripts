@@ -17,10 +17,15 @@ http://s23.a2zinc.net/clients/lrp/hrtechnologyconference2017/Public/exhibitors.a
 or
 http://events.pennwell.com/DTECH2018/Public/exhibitors.aspx?_ga=2.91461086.575732828.1507662078-248451487.1507662078
 
-then you should be able to use this as-is by running the command:
-scrapy crawl tradeshow --output=<name-your-file>.csv --output-format=csv --set=start_url=<your-start-url>
+then you should be able to use this as-is by running the wrapper script:
+./scrape.sh <your-start-url>
 
-Otherwise, you may need to create a custom spider like in nrf2018_custom_spider.py
+This script will run the "tradeshow" spider and output CSV to a file named
+tradeshow-scrape.csv. If tradeshow-scrape.csv already exists, it will be
+overwritten with each run.
+
+Otherwise, you may need to create a custom spider like
+in nrf2018_custom_spider.py
 
 
 Scrapy Basics
